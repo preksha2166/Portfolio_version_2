@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preksha Dewoolkar | AI & Data Science Portfolio</title>
+    <meta name="description" content="Portfolio of Preksha Dewoolkar, an Artificial Intelligence & Data Science student specializing in machine learning, data visualization, and cybersecurity.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Additional icon for Kaggle -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-blue-600 text-white shadow-lg flex items-center justify-center">
+        <i class="fas fa-moon text-xl" id="darkModeIcon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-40 dark:bg-gray-800/90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-blue-600 dark:text-blue-400">Preksha Dewoolkar</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Home</a>
+                    <a href="pages/about.html" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">About</a>
+                    <a href="pages/skills.html" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Skills</a>
+                    <a href="pages/projects.html" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Projects</a>
+                    <a href="pages/experience.html" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Experience</a>
+                    <a href="pages/contact.html" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-600 dark:text-gray-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Home</a>
+                <a href="pages/about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">About</a>
+                <a href="pages/skills.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Skills</a>
+                <a href="pages/projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Projects</a>
+                <a href="pages/experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Experience</a>
+                <a href="pages/contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4">Preksha Dewoolkar</h1>
+                    <h2 class="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-6">Artificial Intelligence & Data Science Student</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">Enthusiastic and driven B.E. student in Artificial Intelligence and Data Science with hands-on experience in data analysis, web development, and AI-driven projects.</p>
+                    <div class="flex space-x-4">
+                        <a href="pages/projects.html" class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">View My Work</a>
+                        <a href="pages/contact.html" class="px-6 py-3 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20 transition">Get In Touch</a>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="https://github.com/preksha2166" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl"><i class="fab fa-github"></i></a>
+                        <a href="https://www.kaggle.com/preksha2166" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl">
+                            <img src="images/kaggle-ar21.svg" alt="Kaggle" class="inline-block w-7 h-7 fill-current">
+                        </a>
+                        <a href="https://twitter.com/preksha2166" target="_blank" rel="noopener"
+    class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl">
+   <i class="fab fa-twitter"></i>
+ </a>
+                        <a href="https://www.instagram.com/prekshaaa7" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:officialpreksha2166@gmail.com" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl dark:border-gray-700">
+                        <img src="images/profile.jpg" alt="Preksha Dewoolkar" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

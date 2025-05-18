@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirag Patankar | AI & Data Science Portfolio</title>
+    <meta name="description" content="Portfolio of Chirag Patankar, an Artificial Intelligence & Data Science student specializing in machine learning, data visualization, and cybersecurity.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .progress-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2563EB;
+            border: 4px solid #EFF6FF;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 33px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #E5E7EB;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #2563EB;
+            transition: width .3s;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+        }
+        .dark .hero-bg {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+        }
+        .dark {
+            background-color: #111827;
+            color: #F3F4F6;
+        }
+        .dark .bg-white {
+            background-color: #1F2937 !important;
+        }
+        .dark .text-gray-800 {
+            color: #F3F4F6 !important;
+        }
+        .dark .text-gray-600 {
+            color: #D1D5DB !important;
+        }
+        .dark .border-gray-200 {
+            border-color: #374151 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-blue-600 text-white shadow-lg flex items-center justify-center">
+        <i class="fas fa-moon text-xl" id="darkModeIcon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-40 dark:bg-gray-800/90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-blue-600 dark:text-blue-400">Chirag Patankar</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">About</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Experience</a>
+                    <a href="#contact" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-600 dark:text-gray-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Projects</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-700">Experience</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4">Chirag Patankar</h1>
+                    <h2 class="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-6">Artificial Intelligence & Data Science Student</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">Transforming data into intelligent solutions</p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">View My Work</a>
+                        <a href="#contact" class="px-6 py-3 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20 transition">Get In Touch</a>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 text-xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl dark:border-gray-700">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Chirag Patankar" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Chirag Patankar" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                        A practical Artificial Intelligence & Data Science student with a passion for data-driven solutions. Pursuing skills in Python, PowerBI, Machine Learning, Networking and Cybersecurity frameworks. Eager to contribute to impactful projects and grow professionally.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                        I'm fascinated by the intersection of artificial intelligence and data science, particularly how we can leverage these technologies to solve real-world problems. My academic journey has equipped me with a strong foundation in machine learning algorithms, data visualization techniques, and cybersecurity principles.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        Beyond technical skills, I'm passionate about continuous learning and staying updated with the latest advancements in AI. I enjoy collaborating on projects that challenge me to think creatively and apply my knowledge in innovative ways.
+                    </p>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-map-marker-alt text-blue-600 mr-2 dark:text-blue-400"></i>
+                        <span class="text-gray-600 dark:text-gray-300">Based in Thane West, Mumbai, India</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+                        <i class="fas fa-download mr-2"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Technical Skills & Expertise</h2>
+           
+            <!-- Programming Languages -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300 flex items-center">
+                    <i class="fas fa-code mr-2 text-blue-600 dark:text-blue-400"></i> Programming Languages
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition dark:bg-gray-800">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Python</span>
+                            <span class="text-blue-600 dark:text-blue-400">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                            <div class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition dark:bg-gray-800">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">HTML/CSS</span>
+                            <span class="text-blue-600 dark:text-blue-400">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                            <div class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition dark:bg-gray-800">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">JavaScript</span>
+                            <span class="text-blue-600 dark:text-blue-400">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                            <div class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md transition dark:bg-gray-800">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Java</span>
+                            <span class="text-blue-600 dark:text-blue-400">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                            <div class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Web Development -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300 flex items-center">
+                    <i class="fas fa-globe mr-2 text-blue-600 dark:text-blue-400"></i> Web Development
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-flask text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Flask</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">Web framework for Python</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fab fa-react text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">React</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">JavaScript library for UI</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-robot text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Virtual Assistant & Chatbot</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">AI-powered assistants</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-paint-brush text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Figma (Dev mode)</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">UI/UX design tool</p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Data Analytics & AI -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300 flex items-center">
+                    <i class="fas fa-chart-line mr-2 text-blue-600 dark:text-blue-400"></i> Data Analytics & AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-brain text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Machine Learning</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">Algorithms and models</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-chart-pie text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Data Visualization</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">Power BI and more</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-robot text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Generative AI</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">AI content generation</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-chart-bar text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Stock Price Prediction</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">Financial forecasting</p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Cybersecurity -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300 flex items-center">
+                    <i class="fas fa-shield-alt mr-2 text-blue-600 dark:text-blue-400"></i> Cybersecurity
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-bug text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Honeypot Implementation</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">Security deception</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-user-secret text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Ethical Hacking</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">Penetration testing</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-network-wired text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Network Security</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-400">Protection frameworks</p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Cloud & Platforms -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300 flex items-center">
+                    <i class="fas fa-cloud mr-2 text-blue-600 dark:text-blue-400"></i> Cloud & Platforms
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fab fa-aws text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">AWS</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fab fa-google text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Google Cloud</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-server text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">IBM Cloud</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-database text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Oracle</h4>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Tools & Creative Software -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300 flex items-center">
+                    <i class="fas fa-tools mr-2 text-blue-600 dark:text-blue-400"></i> Tools & Creative Software
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-cube text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Blender</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-network-wired text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Cisco Packet Tracer</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-video text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Microsoft Clipchamp</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-palette text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Canva</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-paint-brush text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Figma</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-cubes text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">3DSMax</h4>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Soft Skills -->
+            <div>
+                <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300 flex items-center">
+                    <i class="fas fa-users mr-2 text-blue-600 dark:text-blue-400"></i> Soft Skills
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-comments text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Communication</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-flag text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Leadership</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-hands-helping text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Teamwork</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-clock text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Time Management</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-lightbulb text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Problem-solving</h4>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center transition dark:bg-gray-800">
+                        <i class="fas fa-calendar-check text-4xl text-blue-600 mb-4 dark:text-blue-400"></i>
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Event Organization</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Featured Projects</h2>
+           
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Customer Segmentation Project -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition dark:bg-gray-700">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Customer Segmentation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Customer Segmentation</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Implemented customer segmentation using clustering techniques in Jupyter Notebook</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Machine Learning</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Data Visualization</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium dark:text-blue-400 dark:hover:text-blue-300">View Details →</a>
+                    </div>
+                </div>
+               
+                <!-- Stock Price Prediction Project -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition dark:bg-gray-700">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Stock Price Prediction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Stock Price Prediction</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Developed a Python script to fetch and analyze stock data using the yfinance API</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">API Integration</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Neural Networks</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium dark:text-blue-400 dark:hover:text-blue-300">View Details →</a>
+                    </div>
+                </div>
+               
+                <!-- Anti-Money Laundering Project -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition dark:bg-gray-700">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Anti-Money Laundering" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Anti-Money Laundering</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Built a fully functional enterprise website offering digital services</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">HTML</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">CSS</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">JavaScript</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium dark:text-blue-400 dark:hover:text-blue-300">View Details →</a>
+                    </div>
+                </div>
+               
+                <!-- Jarvis Virtual Assistant Project -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition dark:bg-gray-700">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Jarvis Virtual Assistant" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Jarvis Virtual Assistant</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Created a basic voice assistant capable of performing various tasks using Python</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Speech Recognition</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">AI</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium dark:text-blue-400 dark:hover:text-blue-300">View Details →</a>
+                    </div>
+                </div>
+               
+                <!-- Honeypot Implementation Project -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition dark:bg-gray-700">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Honeypot Implementation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Honeypot Implementation</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Designed and deployed a cybersecurity honeypot to detect unauthorized access attempts</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Flask</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Cybersecurity</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium dark:text-blue-400 dark:hover:text-blue-300">View Details →</a>
+                    </div>
+                </div>
+               
+                <!-- Second Honeypot Project -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition dark:bg-gray-700">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Honeypot Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Ethical Hacking Honeypot</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Implemented another honeypot project focusing on ethical hacking methods</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Ethical Hacking</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-200">Network Security</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium dark:text-blue-400 dark:hover:text-blue-300">View Details →</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Professional Experience</h2>
+           
+            <div class="relative pl-12 timeline">
+                <!-- ALTAIR DATA SCIENCE MASTER VIRTUAL INTERNSHIP -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">ALTAIR DATA SCIENCE MASTER VIRTUAL INTERNSHIP</h3>
+                            <span class="text-blue-600 dark:text-blue-400 font-medium">Oct 2024 - Dec 2024</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3 dark:bg-gray-700">
+                                <i class="fas fa-chart-line text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Altair Engineering</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Virtual</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Mastered Altair's data science tools and platforms</li>
+                            <li>Worked on real-world data analysis projects</li>
+                            <li>Developed proficiency in data visualization and analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pragati: Path to Future -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Pragati: Path to Future - Cohort 5</h3>
+                            <span class="text-blue-600 dark:text-blue-400 font-medium">Selected 2024</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3 dark:bg-gray-700">
+                                <i class="fas fa-award text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Professional Development Program</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Selected Candidate</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Selected for the prestigious Pragati program</li>
+                            <li>Engaged in mentorship and leadership training</li>
+                            <li>Focused on professional skill development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Analyst Intern -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Data Analyst Intern</h3>
+                            <span class="text-blue-600 dark:text-blue-400 font-medium">July 2024 - Sep 2024</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3 dark:bg-gray-700">
+                                <i class="fas fa-building text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Prismtech Packaging Solutions Pvt. Ltd.</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Mumbai</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Assisted in data analysis tasks related to packaging automation</li>
+                            <li>Ensured efficient data management and reporting</li>
+                            <li>Learned about packaging automation solutions and their industry impact</li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <!-- SAKEC CISCO Winter Internship -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">SAKEC CISCO Winter Internship - Networking</h3>
+                            <span class="text-blue-600 dark:text-blue-400 font-medium">Dec 2024 - Jan 2025</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3 dark:bg-gray-700">
+                                <i class="fas fa-network-wired text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Shah & Anchor Kutchhi Engineering College</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Mumbai</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Deepened networking knowledge through the CCNA program</li>
+                            <li>Implemented knowledge using Cisco Packet Tracer</li>
+                            <li>Collaborated on networking projects and simulations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pragati: Path to Future -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Pragati: Path to Future - Cohort 5</h3>
+                            <span class="text-blue-600 dark:text-blue-400 font-medium">Selected 2024</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Selected for the prestigious Pragati program focused on professional development.</p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Participated in intensive professional development program</li>
+                            <li>Engaged in mentorship and leadership training</li>
+                            <li>Selected through competitive application process</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- AICTE EduSkills Internship -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">AICTE EduSkills Virtual Internship - Generative AI</h3>
+                            <span class="text-blue-600 dark:text-blue-400 font-medium">July 2024 - Sep 2024</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3 dark:bg-gray-700">
+                                <i class="fas fa-robot text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">All India Council for Technical Education (AICTE) | Google Cloud</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Virtual</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Completed a 10-week virtual internship focused on Generative AI</li>
+                            <li>Learned about GenAI concepts and applications</li>
+                            <li>Worked on practical implementations</li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <!-- CISCO Virtual Internship -->
+                <div class="relative timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">CISCO Virtual Internship - Cyber-Security</h3>
+                            <span class="text-blue-600 dark:text-blue-400 font-medium">June 2024 - July 2024</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3 dark:bg-gray-700">
+                                <i class="fas fa-shield-alt text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">CISCO</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Virtual</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Learned cybersecurity fundamentals</li>
+                            <li>Developed skills in threat analysis and mitigation strategies</li>
+                            <li>Gained knowledge in network security, protocols, and ethical hacking basics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Academic Background</h2>
+           
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Shah & Anchor Kutchhi Engineering College -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-university text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Shah & Anchor Kutchhi Engineering College</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Mumbai</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300">BE in Artificial Intelligence & Data Science</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Currently Enrolled</p>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">Semester 1</span>
+                            <span class="text-sm font-medium text-blue-600 dark:text-blue-400">8.68 CGPA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">Semester 2</span>
+                            <span class="text-sm font-medium text-blue-600 dark:text-blue-400">8.48 CGPA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">Semester 3</span>
+                            <span class="text-sm font-medium text-blue-600 dark:text-blue-400">8.74 CGPA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">Semester 4</span>
+                            <span class="text-sm font-medium text-blue-600 dark:text-blue-400">8.13 CGPA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">Semester 5</span>
+                            <span class="text-sm font-medium text-blue-600 dark:text-blue-400">8.45 CGPA</span>
+                        </div>
+                    </div>
+                </div>
+               
+                <!-- B.N. Bandodkar College of Science -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">B.N. Bandodkar College of Science</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Thane</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300">12th Science</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Completed</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600 dark:text-gray-300">Grade</span>
+                        <span class="text-lg font-bold text-blue-600 dark:text-blue-400">75%</span>
+                    </div>
+                </div>
+               
+                <!-- Blossom English High School -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-school text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Blossom English High School</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Pune</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-700 dark:text-gray-300">10th Standard</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Completed</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600 dark:text-gray-300">Grade</span>
+                        <span class="text-lg font-bold text-blue-600 dark:text-blue-400">92.20%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75 dark:bg-gray-900 dark:opacity-90"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full dark:bg-gray-800">
+                <div class="absolute top-0 right-0 pt-4 pr-4">
+                    <button type="button" onclick="closeModal()" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                        <span class="sr-only">Close</span>
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <img id="certificateImage" src="" alt="Certificate" class="w-full h-auto">
+            </div>
+        </div>
+    </div>
+
+    <!-- Certifications Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Professional Certifications</h2>
+           
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Accenture Data Analytics -->
+                <div class="certificate-card bg-white p-6 rounded-lg shadow-md transition hover:shadow-lg dark:bg-gray-800">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-chart-line text-2xl text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Data Analytics Virtual Experience</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Accenture North America</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/data-analytics-accenture.jpg')" class="w-full px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20 transition flex items-center justify-center">
+                        <span>View Certificate</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- ALTAIR DATA SCIENCE Certificate -->
+                <div class="certificate-card bg-white p-6 rounded-lg shadow-md transition hover:shadow-lg dark:bg-gray-800">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-brain text-2xl text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Data Science Master Program</h4>
+                            <p class="text-gray-600 dark:text-gray-400">ALTAIR Engineering</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/altair-data-science.jpg')" class="w-full px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20 transition flex items-center justify-center">
+                        <span>View Certificate</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Pragati Certificate -->
+                <div class="certificate-card bg-white p-6 rounded-lg shadow-md transition hover:shadow-lg dark:bg-gray-800">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-award text-2xl text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Pragati: Path to Future</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Cohort 5 Selection</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/pragati-certificate.jpg')" class="w-full px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20 transition flex items-center justify-center">
+                        <span>View Certificate</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-certificate text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 dark:text-white">Data Analytics by Forage</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Accenture • Dec 2024</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/data-analytics-accenture.jpg')" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-300">View Certificate →</button>
+                </div>
+               
+                <!-- Certification 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-certificate text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 dark:text-white">Data Visualization by Forage</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Tata • Dec 2024</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/data-analytics-accenture.jpg')" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-300">View Certificate →</button>
+                </div>
+               
+                <!-- Certification 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-certificate text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 dark:text-white">Getting Started with Artificial Intelligence</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">IBM SkillsBuild • Nov 2024</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/data-analytics-accenture.jpg')" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-300">View Certificate →</button>
+                </div>
+               
+                <!-- Certification 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-certificate text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 dark:text-white">Gen AI</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">BCGX • Oct 2024</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/data-analytics-accenture.jpg')" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-300">View Certificate →</button>
+                </div>
+               
+                <!-- Certification 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-certificate text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 dark:text-white">Prompt Design in Vertex AI</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Google Cloud Skill- GenAI Jams • May 2024</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/data-analytics-accenture.jpg')" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-300">View Certificate →</button>
+                </div>
+               
+                <!-- Certification 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-certificate text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 dark:text-white">Introduction to Generative AI</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Google Cloud Skill- GenAI Jams • May 2024</p>
+                        </div>
+                    </div>
+                    <button onclick="showCertificate('images/certificates/data-analytics-accenture.jpg')" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-300">View Certificate →</button>
+                </div>
+            </div>
+           
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+                    View All Certifications
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showCertificate(imageUrl) {
+            document.getElementById('certificateImage').src = imageUrl;
+            document.getElementById('certificateModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('certificateModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('certificateModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('certificateModal').classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <!-- Extracurricular Activities -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Leadership & Activities</h2>
+           
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Activity 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-users text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Cogniscience Club</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Management team member of the college's premier technical club promoting AI and data science knowledge.</p>
+                </div>
+               
+                <!-- Activity 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fab fa-google text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">GDSC Sakec</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Management team member of Google Developer Student Club, organizing tech events and workshops.</p>
+                </div>
+               
+                <!-- Activity 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-network-wired text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">CISCO Student Coordinator</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Coordinated networking and cybersecurity initiatives for CISCO programs at college.</p>
+                </div>
+               
+                <!-- Activity 4 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Alumni Sakec</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Design team member for alumni association, creating visual content and maintaining connections.</p>
+                </div>
+               
+                <!-- Activity 5 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-chalkboard-teacher text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Teacher for Junior Students</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">3 years experience teaching programming and technical concepts to junior engineering students.</p>
+                </div>
+               
+                <!-- Activity 6 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md dark:bg-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 dark:bg-blue-900">
+                            <i class="fas fa-file-invoice-dollar text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Transcriptor & Accountant</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Managed financial records and documentation for various projects and organizations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Get In Touch</h2>
+           
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+               
+                <div class="md:w-1/2 md:pl-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md dark:bg-gray-800">
+                        <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white">Contact Information</h3>
+                       
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center dark:bg-blue-900">
+                                        <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Email</h4>
+                                    <p class="text-base text-gray-800 dark:text-gray-300">officialchiragp1605@gmail.com</p>
+                                </div>
+                            </div>
+                           
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <
+</html>
